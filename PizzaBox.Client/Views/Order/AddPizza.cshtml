@@ -1,0 +1,54 @@
+@model PizzaBox.Client.Models.PizzaViewModel
+
+<h2>Create New Order</h2>
+<br>
+@* HTML - creates a form *@
+<form action="/placeorder" method="get">
+    <h5>Select a crust:</h5>
+    <select name="crust">
+        @foreach (var crust in ViewBag.Crusts)
+        {
+            <option value="@crust.Name">@crust.Name</option>
+            @* <input type="radio" name="crust" id="crust" value="@crust.Name" data-val="true" data-val-required="Needed">
+            <label for="crust">@crust.Name</label> *@
+        }
+        @Html.ValidationMessageFor(m => m.Crust, null, new { @class = "text-danger" })
+    </select>
+    <br><br>
+    
+    <h5>Select a size:</h5>
+    <select name="size" id="">
+        @foreach (var size in ViewBag.Sizes)
+        {
+            <option value="@size.Name">@size.Name</option>
+            @* <input type="radio" name="size" id="size" value="@size.Name" data-val="true" data-val-required="Needed">
+            <label for="crust">@size.Name</label> *@
+        }
+        @Html.ValidationMessageFor(m => m.Size, null, new { @class = "text-danger" })
+    </select>
+    <br><br>
+    
+    <h5>Select a pizza:</h5>
+    <select name="menuItems" id="">
+        @foreach (var pizza in ViewBag.MenuItems)
+        {
+            <option value="@pizza.Name">@pizza.Name</option>
+            @* <input type="radio" name="size" id="size" value="@size.Name" data-val="true" data-val-required="Needed">
+            <label for="crust">@size.Name</label> *@
+        }
+        @Html.ValidationMessageFor(m => m.SelectedPizza, null, new { @class = "text-danger" })
+    </select>
+    <br><br>
+
+    <h5>Select your toppings:</h5>
+    @foreach (var topping in ViewBag.Toppings)
+    {
+        <input type="checkbox" name="topping" id="topping" value="@topping.Name" data-val="true" data-val-required="Needed">
+        <label for="crust">@topping.Name</label>
+    }
+    @Html.ValidationMessageFor(m => m.SelectedToppings, null, new { @class = "text-danger" })
+    <br>
+
+    <button type="submit">Add to Order</button>
+</form>
+<br>

@@ -1,0 +1,41 @@
+@model PizzaBox.Client.Models.PizzaViewModel
+
+<h2>My Orders</h2>
+<a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="AddPizza">Create New Order</a>
+<br>
+
+@* HTML - creates a form *@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Order Date
+            </th>
+            <th>
+                Details
+            </th>
+            <th>
+                Order Total
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                @* <a asp-action="" asp-route-id="">Edit</a> |
+                <a asp-action="" asp-route-id="">Details</a> |
+                <a asp-action="" asp-route-id="">Delete</a> *@
+            </td>
+        </tr>
+    </tbody>
+</table>
