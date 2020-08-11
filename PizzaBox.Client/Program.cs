@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using PizzaBox.Client.Models;
 
 namespace PizzaBox.Client
 {
@@ -13,7 +15,21 @@ namespace PizzaBox.Client
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+            using(var scope = host.Services.CreateScope())
+            {
+              var Services = scope.ServiceProvider;
+              try
+              {
+                SeedData.Initialize(Services);
+              }
+              catch(Exception e)
+              {
+                Console.WriteLine(e);
+              }
+
+            }
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
