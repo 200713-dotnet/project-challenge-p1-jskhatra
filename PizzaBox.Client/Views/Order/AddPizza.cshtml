@@ -9,8 +9,6 @@
         @foreach (var crust in ViewBag.Crusts)
         {
             <option value="@crust.Name">@crust.Name</option>
-            @* <input type="radio" name="crust" id="crust" value="@crust.Name" data-val="true" data-val-required="Needed">
-            <label for="crust">@crust.Name</label> *@
         }
         @Html.ValidationMessageFor(m => m.Crust, null, new { @class = "text-danger" })
     </select>
@@ -21,8 +19,6 @@
         @foreach (var size in ViewBag.Sizes)
         {
             <option value="@size.Name">@size.Name</option>
-            @* <input type="radio" name="size" id="size" value="@size.Name" data-val="true" data-val-required="Needed">
-            <label for="crust">@size.Name</label> *@
         }
         @Html.ValidationMessageFor(m => m.Size, null, new { @class = "text-danger" })
     </select>
@@ -33,8 +29,7 @@
         @foreach (var pizza in ViewBag.MenuItems)
         {
             <option value="@pizza.Name">@pizza.Name</option>
-            @* <input type="radio" name="size" id="size" value="@size.Name" data-val="true" data-val-required="Needed">
-            <label for="crust">@size.Name</label> *@
+
         }
         @Html.ValidationMessageFor(m => m.MenuItems, null, new { @class = "text-danger" })
     </select>
